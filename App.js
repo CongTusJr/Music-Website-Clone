@@ -148,9 +148,12 @@ Array.from(document.getElementsByClassName('playListPlay')).forEach((e)=>{
         music.src=`Audio/Sơn Tùng M-TP/${index}.mp3`;
         poster_master_play.src=`Image/Sơn Tùng M-TP/${index}.jpg`;
         music.play();
+
         masterPlay.classList.add('bi-play-fill');
         masterPlay.classList.remove('bi-pause-fill');
-
+        document
+            .getElementById('masterPlay')
+            .classList.replace('bi-play-fill', 'bi-pause-fill');
         let songTitles = songs.filter((els)=>{
             return els.id == index;
         });
@@ -161,8 +164,8 @@ Array.from(document.getElementsByClassName('playListPlay')).forEach((e)=>{
         makeAllBackground();
         Array.from(document.getElementsByClassName('songItem'))[index-1].style.background="rgb(105, 105, 105, .1)";
         makeAllplays();
-        el.target.classList.add('bi-play-circle-fill');
-        el.target.classList.remove('bi-pause-circle-fill');
+        el.target.classList.remove('bi-play-circle-fill');
+        el.target.classList.add('bi-pause-circle-fill');
     })
 })
 
